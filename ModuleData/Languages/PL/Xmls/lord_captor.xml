@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="string">
+  <tags>
+    <tag language="Polski"/>
+  </tags>
+  <strings>
+    <string id="lord_captor_post_battle_title" text="Decyzje po bitwie"/>
+    <string id="lord_captor_post_battle_desc" text="Pojmałeś {COUNT} lordów. Jak chcesz z nimi postąpić?"/>
+    <string id="lord_captor_option_take_release" text="Uwięzić / Uwolnić"/>
+    <string id="lord_captor_option_execute" text="Masowa egzekucja"/>
+    <string id="lord_captor_option_vanilla" text="Indywidualne dialogi"/>
+    <string id="lord_captor_continue" text="Kontynuuj"/>
+    <string id="lord_captor_mass_execution_title" text="Masowa egzekucja"/>
+    <string id="lord_captor_take_release_title" text="Uwięzić / Uwolnić"/>
+    <string id="lord_captor_execute_desc" text="Zaznacz lordów, których chcesz STRACIĆ. Niezaznaczeni lordowie zostaną wzięci do niewoli."/>
+    <string id="lord_captor_release_desc" text="Zaznacz lordów, których chcesz UWOLNIĆ. Niezaznaczeni lordowie zostaną wzięci do niewoli."/>
+    <string id="lord_captor_execute_checked" text="Stracić zaznaczonych"/>
+    <string id="lord_captor_release_checked" text="Uwolnić zaznaczonych"/>
+    <string id="lord_captor_take_all_prisoner" text="Uwięzić wszystkich"/>
+    <string id="lord_captor_prisoner_mgmt_title" text="Zarządzanie więźniami"/>
+    <string id="lord_captor_prisoner_mgmt_desc" text="Wybierz więźniów do zarządzania:"/>
+    <string id="lord_captor_next" text="Dalej"/>
+    <string id="lord_captor_cancel" text="Anuluj"/>
+    <string id="lord_captor_manage_title" text="Zarządzaj więźniami"/>
+    <string id="lord_captor_manage_desc" text="Co chcesz zrobić z {COUNT} wybranymi lordami?"/>
+    <string id="lord_captor_execute_all" text="Stracić"/>
+    <string id="lord_captor_release_all" text="Uwolnić"/>
+    <string id="lord_captor_apply_to_all" text="--- Zastosuj do wszystkich ---"/>
+    <string id="lord_captor_apply_execute_all" text="Stracić wszystkich"/>
+    <string id="lord_captor_apply_release_all" text="Uwolnić wszystkich"/>
+    <string id="lord_captor_apply_take_all" text="Uwięzić wszystkich"/>
+    <string id="lord_captor_no_prisoners" text="Nie masz żadnych lordów w niewoli."/>
+  </strings>
+</base>

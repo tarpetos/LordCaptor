@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="string">
+  <tags>
+    <tag language="繁體中文"/>
+  </tags>
+  <strings>
+    <string id="lord_captor_post_battle_title" text="戰後決策"/>
+    <string id="lord_captor_post_battle_desc" text="你俘獲了 {COUNT} 位領主。你想如何處置他們？"/>
+    <string id="lord_captor_option_take_release" text="關押 / 釋放"/>
+    <string id="lord_captor_option_execute" text="集體處決"/>
+    <string id="lord_captor_option_vanilla" text="逐一對話"/>
+    <string id="lord_captor_continue" text="繼續"/>
+    <string id="lord_captor_mass_execution_title" text="集體處決"/>
+    <string id="lord_captor_take_release_title" text="關押 / 釋放"/>
+    <string id="lord_captor_execute_desc" text="勾選你要處決的領主。未勾選的領主將被關押為囚犯。"/>
+    <string id="lord_captor_release_desc" text="勾選你要釋放的領主。未勾選的領主將被關押為囚犯。"/>
+    <string id="lord_captor_execute_checked" text="處決已勾選"/>
+    <string id="lord_captor_release_checked" text="釋放已勾選"/>
+    <string id="lord_captor_take_all_prisoner" text="全部關押"/>
+    <string id="lord_captor_prisoner_mgmt_title" text="囚犯管理"/>
+    <string id="lord_captor_prisoner_mgmt_desc" text="選擇要管理的囚犯："/>
+    <string id="lord_captor_next" text="下一步"/>
+    <string id="lord_captor_cancel" text="取消"/>
+    <string id="lord_captor_manage_title" text="管理囚犯"/>
+    <string id="lord_captor_manage_desc" text="你想對選中的 {COUNT} 位領主做什麼？"/>
+    <string id="lord_captor_execute_all" text="處決"/>
+    <string id="lord_captor_release_all" text="釋放"/>
+    <string id="lord_captor_apply_to_all" text="--- 應用於全部 ---"/>
+    <string id="lord_captor_apply_execute_all" text="全部處決"/>
+    <string id="lord_captor_apply_release_all" text="全部釋放"/>
+    <string id="lord_captor_apply_take_all" text="全部關押"/>
+    <string id="lord_captor_no_prisoners" text="你沒有任何領主俘虜。"/>
+  </strings>
+</base>

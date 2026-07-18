@@ -1,0 +1,29 @@
+# Build output and distributable package
+[Bb]in/
+[Oo]bj/
+[Dd]ist/
+
+# IDE and editor state
+.idea/
+.vs/
+.vscode/
+*.user
+*.suo
+*.rsuser
+*.sln.docstates
+
+# Local tools, dependencies and operating-system files
+.build-tools/
+.tools/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs, crash dumps and temporary files
+*.log
+*.dmp
+*.crash
+*.tmp
+*.bak
+*.swp
+*~

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="string">
+  <tags>
+    <tag language="English"/>
+  </tags>
+  <strings>
+    <string id="lord_captor_post_battle_title" text="Post-Battle Decisions"/>
+    <string id="lord_captor_post_battle_desc" text="You have captured {COUNT} lords. How would you like to handle them?"/>
+    <string id="lord_captor_option_take_release" text="Take Prisoner / Release"/>
+    <string id="lord_captor_option_execute" text="Mass Execution"/>
+    <string id="lord_captor_option_vanilla" text="Individual Dialogs"/>
+    <string id="lord_captor_continue" text="Continue"/>
+    <string id="lord_captor_mass_execution_title" text="Mass Execution"/>
+    <string id="lord_captor_take_release_title" text="Take Prisoner / Release"/>
+    <string id="lord_captor_execute_desc" text="Check the lords you want to EXECUTE. Unchecked lords will be taken as prisoners."/>
+    <string id="lord_captor_release_desc" text="Check the lords you want to RELEASE. Unchecked lords will be taken as prisoners."/>
+    <string id="lord_captor_execute_checked" text="Execute Checked"/>
+    <string id="lord_captor_release_checked" text="Release Checked"/>
+    <string id="lord_captor_take_all_prisoner" text="Take All Prisoner"/>
+    <string id="lord_captor_prisoner_mgmt_title" text="Prisoner Management"/>
+    <string id="lord_captor_prisoner_mgmt_desc" text="Select prisoners to manage:"/>
+    <string id="lord_captor_next" text="Next"/>
+    <string id="lord_captor_cancel" text="Cancel"/>
+    <string id="lord_captor_manage_title" text="Manage Prisoners"/>
+    <string id="lord_captor_manage_desc" text="What would you like to do with the {COUNT} selected lords?"/>
+    <string id="lord_captor_execute_all" text="Execute"/>
+    <string id="lord_captor_release_all" text="Release"/>
+    <string id="lord_captor_apply_to_all" text="--- Apply To All ---"/>
+    <string id="lord_captor_apply_execute_all" text="Execute All"/>
+    <string id="lord_captor_apply_release_all" text="Release All"/>
+    <string id="lord_captor_apply_take_all" text="Take All Prisoner"/>
+    <string id="lord_captor_no_prisoners" text="You do not have any lord prisoners."/>
+  </strings>
+</base>

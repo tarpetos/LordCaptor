@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="string">
+  <tags>
+    <tag language="Русский"/>
+  </tags>
+  <strings>
+    <string id="lord_captor_post_battle_title" text="Решения после битвы"/>
+    <string id="lord_captor_post_battle_desc" text="Вы захватили {COUNT} лордов. Как вы хотите поступить с ними?"/>
+    <string id="lord_captor_option_take_release" text="Взять в плен / Отпустить"/>
+    <string id="lord_captor_option_execute" text="Массовая казнь"/>
+    <string id="lord_captor_option_vanilla" text="Индивидуальные диалоги"/>
+    <string id="lord_captor_continue" text="Продолжить"/>
+    <string id="lord_captor_mass_execution_title" text="Массовая казнь"/>
+    <string id="lord_captor_take_release_title" text="Взять в плен / Отпустить"/>
+    <string id="lord_captor_execute_desc" text="Отметьте лордов, которых хотите КАЗНИТЬ. Неотмеченные лорды будут взяты в плен."/>
+    <string id="lord_captor_release_desc" text="Отметьте лордов, которых хотите ОТПУСТИТЬ. Неотмеченные лорды будут взяты в плен."/>
+    <string id="lord_captor_execute_checked" text="Казнить отмеченных"/>
+    <string id="lord_captor_release_checked" text="Отпустить отмеченных"/>
+    <string id="lord_captor_take_all_prisoner" text="Взять всех в плен"/>
+    <string id="lord_captor_prisoner_mgmt_title" text="Управление пленниками"/>
+    <string id="lord_captor_prisoner_mgmt_desc" text="Выберите пленников для управления:"/>
+    <string id="lord_captor_next" text="Далее"/>
+    <string id="lord_captor_cancel" text="Отмена"/>
+    <string id="lord_captor_manage_title" text="Управление пленниками"/>
+    <string id="lord_captor_manage_desc" text="Что вы хотите сделать с {COUNT} выбранными лордами?"/>
+    <string id="lord_captor_execute_all" text="Казнить"/>
+    <string id="lord_captor_release_all" text="Освободить"/>
+    <string id="lord_captor_apply_to_all" text="--- Применить ко всем ---"/>
+    <string id="lord_captor_apply_execute_all" text="Казнить всех"/>
+    <string id="lord_captor_apply_release_all" text="Освободить всех"/>
+    <string id="lord_captor_apply_take_all" text="Взять всех в плен"/>
+    <string id="lord_captor_no_prisoners" text="У вас нет пленных лордов."/>
+  </strings>
+</base>

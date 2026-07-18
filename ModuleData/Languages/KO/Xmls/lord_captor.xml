@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="string">
+  <tags>
+    <tag language="한국어"/>
+  </tags>
+  <strings>
+    <string id="lord_captor_post_battle_title" text="전투 후 결정"/>
+    <string id="lord_captor_post_battle_desc" text="{COUNT}명의 영주를 포로로 잡았습니다. 어떻게 처리하시겠습니까?"/>
+    <string id="lord_captor_option_take_release" text="투옥 / 석방"/>
+    <string id="lord_captor_option_execute" text="대량 처형"/>
+    <string id="lord_captor_option_vanilla" text="개별 대화"/>
+    <string id="lord_captor_continue" text="계속"/>
+    <string id="lord_captor_mass_execution_title" text="대량 처형"/>
+    <string id="lord_captor_take_release_title" text="투옥 / 석방"/>
+    <string id="lord_captor_execute_desc" text="처형할 영주를 선택하십시오. 선택하지 않은 영주는 포로로 투옥됩니다."/>
+    <string id="lord_captor_release_desc" text="석방할 영주를 선택하십시오. 선택하지 않은 영주는 포로로 투옥됩니다."/>
+    <string id="lord_captor_execute_checked" text="선택한 영주 처형"/>
+    <string id="lord_captor_release_checked" text="선택한 영주 석방"/>
+    <string id="lord_captor_take_all_prisoner" text="전원 투옥"/>
+    <string id="lord_captor_prisoner_mgmt_title" text="포로 관리"/>
+    <string id="lord_captor_prisoner_mgmt_desc" text="관리할 포로를 선택하십시오:"/>
+    <string id="lord_captor_next" text="다음"/>
+    <string id="lord_captor_cancel" text="취소"/>
+    <string id="lord_captor_manage_title" text="포로 관리"/>
+    <string id="lord_captor_manage_desc" text="선택한 {COUNT}명의 영주를 어떻게 하시겠습니까?"/>
+    <string id="lord_captor_execute_all" text="처형"/>
+    <string id="lord_captor_release_all" text="석방"/>
+    <string id="lord_captor_apply_to_all" text="--- 모두에게 적용 ---"/>
+    <string id="lord_captor_apply_execute_all" text="전원 처형"/>
+    <string id="lord_captor_apply_release_all" text="전원 석방"/>
+    <string id="lord_captor_apply_take_all" text="전원 투옥"/>
+    <string id="lord_captor_no_prisoners" text="포로로 잡은 영주가 없습니다."/>
+  </strings>
+</base>

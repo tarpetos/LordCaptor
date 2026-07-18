@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="string">
+  <tags>
+    <tag language="日本語"/>
+  </tags>
+  <strings>
+    <string id="lord_captor_post_battle_title" text="戦後の決断"/>
+    <string id="lord_captor_post_battle_desc" text="{COUNT} 人の領主を捕らえました。どのように処遇しますか？"/>
+    <string id="lord_captor_option_take_release" text="投獄 / 解放"/>
+    <string id="lord_captor_option_execute" text="一斉処刑"/>
+    <string id="lord_captor_option_vanilla" text="個別の対話"/>
+    <string id="lord_captor_continue" text="続ける"/>
+    <string id="lord_captor_mass_execution_title" text="一斉処刑"/>
+    <string id="lord_captor_take_release_title" text="投獄 / 解放"/>
+    <string id="lord_captor_execute_desc" text="処刑したい領主にチェックを入れてください。チェックのない領主は捕虜として投獄されます。"/>
+    <string id="lord_captor_release_desc" text="解放したい領主にチェックを入れてください。チェックのない領主は捕虜として投獄されます。"/>
+    <string id="lord_captor_execute_checked" text="チェック済みを処刑"/>
+    <string id="lord_captor_release_checked" text="チェック済みを解放"/>
+    <string id="lord_captor_take_all_prisoner" text="全員を投獄"/>
+    <string id="lord_captor_prisoner_mgmt_title" text="捕虜の管理"/>
+    <string id="lord_captor_prisoner_mgmt_desc" text="管理する捕虜を選択してください："/>
+    <string id="lord_captor_next" text="次へ"/>
+    <string id="lord_captor_cancel" text="キャンセル"/>
+    <string id="lord_captor_manage_title" text="捕虜を管理"/>
+    <string id="lord_captor_manage_desc" text="選択した {COUNT} 人の領主をどうしますか？"/>
+    <string id="lord_captor_execute_all" text="処刑"/>
+    <string id="lord_captor_release_all" text="解放"/>
+    <string id="lord_captor_apply_to_all" text="--- 全てに適用 ---"/>
+    <string id="lord_captor_apply_execute_all" text="全員を処刑"/>
+    <string id="lord_captor_apply_release_all" text="全員を解放"/>
+    <string id="lord_captor_apply_take_all" text="全員を投獄"/>
+    <string id="lord_captor_no_prisoners" text="捕虜にしている諸侯はいません。"/>
+  </strings>
+</base>

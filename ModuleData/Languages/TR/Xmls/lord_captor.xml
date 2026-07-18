@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="string">
+  <tags>
+    <tag language="Türkçe"/>
+  </tags>
+  <strings>
+    <string id="lord_captor_post_battle_title" text="Savaş Sonrası Kararlar"/>
+    <string id="lord_captor_post_battle_desc" text="{COUNT} lord ele geçirdiniz. Onları nasıl yönetmek istersiniz?"/>
+    <string id="lord_captor_option_take_release" text="Hapse At / Serbest Bırak"/>
+    <string id="lord_captor_option_execute" text="Toplu İdam"/>
+    <string id="lord_captor_option_vanilla" text="Bireysel Diyaloglar"/>
+    <string id="lord_captor_continue" text="Devam Et"/>
+    <string id="lord_captor_mass_execution_title" text="Toplu İdam"/>
+    <string id="lord_captor_take_release_title" text="Hapse At / Serbest Bırak"/>
+    <string id="lord_captor_execute_desc" text="İDAM etmek istediğiniz lordları işaretleyin. İşaretlenmemiş lordlar tutsak olarak alınacaktır."/>
+    <string id="lord_captor_release_desc" text="SERBEST BIRAKMAK istediğiniz lordları işaretleyin. İşaretlenmemiş lordlar tutsak olarak alınacaktır."/>
+    <string id="lord_captor_execute_checked" text="İşaretlenenleri İdam Et"/>
+    <string id="lord_captor_release_checked" text="İşaretlenenleri Serbest Bırak"/>
+    <string id="lord_captor_take_all_prisoner" text="Tümünü Hapse At"/>
+    <string id="lord_captor_prisoner_mgmt_title" text="Tutsak Yönetimi"/>
+    <string id="lord_captor_prisoner_mgmt_desc" text="Yönetilecek tutsakları seçin:"/>
+    <string id="lord_captor_next" text="İleri"/>
+    <string id="lord_captor_cancel" text="İptal"/>
+    <string id="lord_captor_manage_title" text="Tutsakları Yönet"/>
+    <string id="lord_captor_manage_desc" text="Seçilen {COUNT} lord ile ne yapmak istersiniz?"/>
+    <string id="lord_captor_execute_all" text="İdam Et"/>
+    <string id="lord_captor_release_all" text="Serbest Bırak"/>
+    <string id="lord_captor_apply_to_all" text="--- Hepsine Uygula ---"/>
+    <string id="lord_captor_apply_execute_all" text="Tümünü İdam Et"/>
+    <string id="lord_captor_apply_release_all" text="Tümünü Serbest Bırak"/>
+    <string id="lord_captor_apply_take_all" text="Tümünü Hapse At"/>
+    <string id="lord_captor_no_prisoners" text="Hiç tutsak lordunuz yok."/>
+  </strings>
+</base>

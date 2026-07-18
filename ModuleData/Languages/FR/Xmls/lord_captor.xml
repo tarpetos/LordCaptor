@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="string">
+  <tags>
+    <tag language="Français"/>
+  </tags>
+  <strings>
+    <string id="lord_captor_post_battle_title" text="Décisions d'après-bataille"/>
+    <string id="lord_captor_post_battle_desc" text="Vous avez capturé {COUNT} seigneurs. Comment souhaitez-vous les traiter ?"/>
+    <string id="lord_captor_option_take_release" text="Emprisonner / Libérer"/>
+    <string id="lord_captor_option_execute" text="Exécution de masse"/>
+    <string id="lord_captor_option_vanilla" text="Dialogues individuels"/>
+    <string id="lord_captor_continue" text="Continuer"/>
+    <string id="lord_captor_mass_execution_title" text="Exécution de masse"/>
+    <string id="lord_captor_take_release_title" text="Emprisonner / Libérer"/>
+    <string id="lord_captor_execute_desc" text="Cochez les seigneurs que vous souhaitez EXÉCUTER. Les seigneurs non cochés seront faits prisonniers."/>
+    <string id="lord_captor_release_desc" text="Cochez les seigneurs que vous souhaitez LIBÉRER. Les seigneurs non cochés seront faits prisonniers."/>
+    <string id="lord_captor_execute_checked" text="Exécuter les cochés"/>
+    <string id="lord_captor_release_checked" text="Libérer les cochés"/>
+    <string id="lord_captor_take_all_prisoner" text="Tous emprisonner"/>
+    <string id="lord_captor_prisoner_mgmt_title" text="Gestion des prisonniers"/>
+    <string id="lord_captor_prisoner_mgmt_desc" text="Sélectionnez les prisonniers à gérer :"/>
+    <string id="lord_captor_next" text="Suivant"/>
+    <string id="lord_captor_cancel" text="Annuler"/>
+    <string id="lord_captor_manage_title" text="Gérer les prisonniers"/>
+    <string id="lord_captor_manage_desc" text="Que souhaitez-vous faire des {COUNT} seigneurs sélectionnés ?"/>
+    <string id="lord_captor_execute_all" text="Exécuter"/>
+    <string id="lord_captor_release_all" text="Libérer"/>
+    <string id="lord_captor_apply_to_all" text="--- Appliquer à tous ---"/>
+    <string id="lord_captor_apply_execute_all" text="Tout exécuter"/>
+    <string id="lord_captor_apply_release_all" text="Tout libérer"/>
+    <string id="lord_captor_apply_take_all" text="Tous emprisonner"/>
+    <string id="lord_captor_no_prisoners" text="Vous n'avez aucun seigneur prisonnier."/>
+  </strings>
+</base>

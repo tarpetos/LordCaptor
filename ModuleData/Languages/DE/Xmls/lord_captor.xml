@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="string">
+  <tags>
+    <tag language="Deutsch"/>
+  </tags>
+  <strings>
+    <string id="lord_captor_post_battle_title" text="Entscheidungen nach der Schlacht"/>
+    <string id="lord_captor_post_battle_desc" text="Ihr habt {COUNT} Lords gefangen genommen. Wie wollt Ihr mit ihnen verfahren?"/>
+    <string id="lord_captor_option_take_release" text="Gefangen nehmen / Freilassen"/>
+    <string id="lord_captor_option_execute" text="Massenhinrichtung"/>
+    <string id="lord_captor_option_vanilla" text="Einzelne Dialoge"/>
+    <string id="lord_captor_continue" text="Weiter"/>
+    <string id="lord_captor_mass_execution_title" text="Massenhinrichtung"/>
+    <string id="lord_captor_take_release_title" text="Gefangen nehmen / Freilassen"/>
+    <string id="lord_captor_execute_desc" text="Markiert die Lords, die Ihr HINRICHTEN wollt. Nicht markierte Lords werden als Gefangene genommen."/>
+    <string id="lord_captor_release_desc" text="Markiert die Lords, die Ihr FREILASSEN wollt. Nicht markierte Lords werden als Gefangene genommen."/>
+    <string id="lord_captor_execute_checked" text="Markierte hinrichten"/>
+    <string id="lord_captor_release_checked" text="Markierte freilassen"/>
+    <string id="lord_captor_take_all_prisoner" text="Alle gefangen nehmen"/>
+    <string id="lord_captor_prisoner_mgmt_title" text="Gefangenenverwaltung"/>
+    <string id="lord_captor_prisoner_mgmt_desc" text="Wählt Gefangene zur Verwaltung aus:"/>
+    <string id="lord_captor_next" text="Weiter"/>
+    <string id="lord_captor_cancel" text="Abbrechen"/>
+    <string id="lord_captor_manage_title" text="Gefangene verwalten"/>
+    <string id="lord_captor_manage_desc" text="Was wollt Ihr mit den {COUNT} ausgewählten Lords tun?"/>
+    <string id="lord_captor_execute_all" text="Hinrichten"/>
+    <string id="lord_captor_release_all" text="Freilassen"/>
+    <string id="lord_captor_apply_to_all" text="--- Auf alle anwenden ---"/>
+    <string id="lord_captor_apply_execute_all" text="Alle hinrichten"/>
+    <string id="lord_captor_apply_release_all" text="Alle freilassen"/>
+    <string id="lord_captor_apply_take_all" text="Alle gefangen nehmen"/>
+    <string id="lord_captor_no_prisoners" text="Ihr habt keine gefangenen Lords."/>
+  </strings>
+</base>
