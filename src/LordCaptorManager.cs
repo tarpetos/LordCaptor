@@ -102,7 +102,7 @@ namespace LordCaptor
                         {
                             foreach (var h in heroes)
                             {
-                                if (h.IsAlive && !h.IsPrisoner && PartyBase.MainParty != null) 
+                                if (h.IsAlive && PartyBase.MainParty != null) 
                                 {
                                     TakePrisonerAction.Apply(PartyBase.MainParty, h);
                                 }
@@ -122,7 +122,7 @@ namespace LordCaptor
                     {
                         foreach (var h in heroes)
                         {
-                            if (h.IsAlive && !h.IsPrisoner && PartyBase.MainParty != null) 
+                            if (h.IsAlive && PartyBase.MainParty != null) 
                             {
                                 TakePrisonerAction.Apply(PartyBase.MainParty, h);
                             }
@@ -162,8 +162,16 @@ namespace LordCaptor
                     {
                         foreach (Hero h in selectedHeroes)
                         {
-                            if (fromShiftO && PartyBase.MainParty != null && PartyBase.MainParty.PrisonRoster != null)
-                                PartyBase.MainParty.PrisonRoster.RemoveTroop(h.CharacterObject, 1);
+                            if (fromShiftO)
+                            {
+                                if (PartyBase.MainParty != null && PartyBase.MainParty.PrisonRoster != null)
+                                    PartyBase.MainParty.PrisonRoster.RemoveTroop(h.CharacterObject, 1);
+                            }
+                            else
+                            {
+                                // Must take prisoner first so the game allows execution
+                                TakePrisonerAction.Apply(PartyBase.MainParty, h);
+                            }
                             
                             KillCharacterAction.ApplyByExecution(h, Hero.MainHero, true, true);
                             allHeroes.Remove(h);
@@ -201,7 +209,7 @@ namespace LordCaptor
                         // Post-battle: Do NOT open the menu again! Just take the rest as prisoners.
                         foreach (var h in allHeroes)
                         {
-                            if (h.IsAlive && !h.IsPrisoner && PartyBase.MainParty != null) 
+                            if (h.IsAlive && PartyBase.MainParty != null) 
                             {
                                 TakePrisonerAction.Apply(PartyBase.MainParty, h);
                             }
@@ -258,7 +266,14 @@ namespace LordCaptor
                     string choice = selected[0].Identifier as string;
                     if (choice == "execute_all")
                     {
-                        foreach(var h in allHeroes) if (h.IsAlive) KillCharacterAction.ApplyByExecution(h, Hero.MainHero, true, true);
+                        foreach(var h in allHeroes) 
+                        {
+                            if (h.IsAlive) 
+                            {
+                                if (!fromShiftO) TakePrisonerAction.Apply(PartyBase.MainParty, h);
+                                KillCharacterAction.ApplyByExecution(h, Hero.MainHero, true, true);
+                            }
+                        }
                         if (!fromShiftO) { SkipVanillaCaptureLogic = false; BattleHandled = false; }
                     }
                     else if (choice == "release_all")
@@ -292,7 +307,7 @@ namespace LordCaptor
                     {
                         if (!fromShiftO)
                         {
-                            foreach(var h in allHeroes) if (h.IsAlive && !h.IsPrisoner && PartyBase.MainParty != null) TakePrisonerAction.Apply(PartyBase.MainParty, h);
+                            foreach(var h in allHeroes) if (h.IsAlive && PartyBase.MainParty != null) TakePrisonerAction.Apply(PartyBase.MainParty, h);
                             SkipVanillaCaptureLogic = false;
                             BattleHandled = false;
                         }

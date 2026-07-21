@@ -23,13 +23,20 @@ namespace LordCaptor
                         if (roster != null)
                         {
                             List<Hero> heroes = new List<Hero>();
+                            List<TaleWorlds.CampaignSystem.CharacterObject> heroesToRemove = new List<TaleWorlds.CampaignSystem.CharacterObject>();
                             foreach (var troop in roster.GetTroopRoster())
                             {
-                                if (troop.Character != null && troop.Character.IsHero && troop.Character.HeroObject != null)
+                                if (troop.Character != null && troop.Character.IsHero && troop.Character.HeroObject != null && troop.Character.HeroObject.IsAlive)
                                 {
                                     heroes.Add(troop.Character.HeroObject);
+                                    heroesToRemove.Add(troop.Character);
                                     LordCaptorManager.Log($"[STATE] Extracted hero from Roster: {troop.Character.Name}");
                                 }
+                            }
+                            
+                            foreach (var c in heroesToRemove)
+                            {
+                                roster.RemoveTroop(c, roster.GetTroopCount(c));
                             }
                             
                             if (heroes.Count > 0)
