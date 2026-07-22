@@ -18,6 +18,7 @@ namespace LordCaptor
         public static bool SkipVanillaCaptureLogic { get; set; } = false;
         public static bool BattleHandled { get; set; } = false;
         public static bool IsGatheringHeroes { get; set; } = false;
+        public static bool IsMenuOpen { get; set; } = false;
         public static List<Hero> GatheredHeroes { get; set; } = new List<Hero>();
         private static List<Hero> _pendingLords = new List<Hero>();
 
@@ -27,7 +28,7 @@ namespace LordCaptor
             {
                 // TaleWorlds.Core.MBInformationManager.AddQuickInformation(new TaleWorlds.Localization.TextObject("LordCaptor: " + message), 0, null, null, "");
                 
-                // string path = @"C:\Users\Taras Hevlich\AppData\LocalLow\LordCaptor.log";
+                // string path = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + "Low", "LordCaptor.log");
                 // System.IO.File.AppendAllText(path, System.DateTime.Now.ToString("HH:mm:ss.fff") + " - " + message + "\n");
             }
             catch { }
@@ -47,7 +48,6 @@ namespace LordCaptor
             Log($"[MOD] ShowPrisonerManagementUI called with {heroes.Count} heroes. fromShiftO: {fromShiftO}");
             var inquiryElements = new List<InquiryElement>();
 
-            // Pseudo-checkbox for Apply To All
             inquiryElements.Add(new InquiryElement(
                 "apply_to_all",
                 new TaleWorlds.Localization.TextObject("{=lord_captor_apply_to_all}--- Apply To All ---").ToString(),
@@ -110,6 +110,7 @@ namespace LordCaptor
                             SkipVanillaCaptureLogic = false;
                             BattleHandled = false;
                         }
+                        IsMenuOpen = false;
                         return;
                     }
                     List<Hero> selectedHeroes = new List<Hero>();
@@ -130,6 +131,7 @@ namespace LordCaptor
                         SkipVanillaCaptureLogic = false;
                         BattleHandled = false;
                     }
+                    IsMenuOpen = false;
                 }
             ));
         }
@@ -169,7 +171,6 @@ namespace LordCaptor
                             }
                             else
                             {
-                                // Must take prisoner first so the game allows execution
                                 TakePrisonerAction.Apply(PartyBase.MainParty, h);
                             }
                             
@@ -206,7 +207,6 @@ namespace LordCaptor
 
                     if (!fromShiftO)
                     {
-                        // Post-battle: Do NOT open the menu again! Just take the rest as prisoners.
                         foreach (var h in allHeroes)
                         {
                             if (h.IsAlive && PartyBase.MainParty != null) 
@@ -217,8 +217,24 @@ namespace LordCaptor
                         SkipVanillaCaptureLogic = false;
                         BattleHandled = false;
                     }
+                    IsMenuOpen = false;
                 },
-                null
+                (List<InquiryElement> selected) => 
+                { 
+                    if (!fromShiftO)
+                    {
+                        foreach (var h in allHeroes)
+                        {
+                            if (h.IsAlive && PartyBase.MainParty != null) 
+                            {
+                                TakePrisonerAction.Apply(PartyBase.MainParty, h);
+                            }
+                        }
+                        SkipVanillaCaptureLogic = false;
+                        BattleHandled = false;
+                    }
+                    IsMenuOpen = false; 
+                }
             ));
         }
 
@@ -237,6 +253,7 @@ namespace LordCaptor
 
             if (heroes.Count == 0)
             {
+                IsMenuOpen = false;
                 InformationManager.DisplayMessage(new InformationMessage(new TaleWorlds.Localization.TextObject("{=lord_captor_no_prisoners}You do not have any lord prisoners.").ToString()));
                 return;
             }
@@ -275,6 +292,7 @@ namespace LordCaptor
                             }
                         }
                         if (!fromShiftO) { SkipVanillaCaptureLogic = false; BattleHandled = false; }
+                        IsMenuOpen = false;
                     }
                     else if (choice == "release_all")
                     {
@@ -302,6 +320,7 @@ namespace LordCaptor
                             }
                         }
                         if (!fromShiftO) { SkipVanillaCaptureLogic = false; BattleHandled = false; }
+                        IsMenuOpen = false;
                     }
                     else if (choice == "take_all")
                     {
@@ -311,13 +330,23 @@ namespace LordCaptor
                             SkipVanillaCaptureLogic = false;
                             BattleHandled = false;
                         }
+                        IsMenuOpen = false;
                     }
                     else if (choice == "back")
                     {
                         ShowPrisonerManagementUI(allHeroes, fromShiftO);
                     }
                 },
-                null
+                (List<InquiryElement> selected) => 
+                { 
+                    if (!fromShiftO)
+                    {
+                        foreach(var h in allHeroes) if (h.IsAlive && PartyBase.MainParty != null) TakePrisonerAction.Apply(PartyBase.MainParty, h);
+                        SkipVanillaCaptureLogic = false;
+                        BattleHandled = false;
+                    }
+                    IsMenuOpen = false; 
+                }
             ));
         }
 

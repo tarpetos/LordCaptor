@@ -26,22 +26,32 @@ namespace LordCaptor
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
             base.OnGameStart(game, gameStarterObject);
-            // We no longer need to register a CampaignBehavior because the 
-            // logic is fully handled by Harmony patches and OnApplicationTick.
         }
 
         protected override void OnApplicationTick(float dt)
         {
             base.OnApplicationTick(dt);
             
-            if (Campaign.Current != null && Hero.MainHero != null && TaleWorlds.CampaignSystem.Party.PartyBase.MainParty != null && TaleWorlds.CampaignSystem.Party.PartyBase.MainParty.MobileParty != null)
+            try 
             {
-                if (Input.IsKeyDown(InputKey.LeftShift) && Input.IsKeyPressed(InputKey.O))
+                if (TaleWorlds.Core.Game.Current != null && TaleWorlds.Core.Game.Current.GameStateManager != null)
                 {
-                    LordCaptorManager.Log("Shift+O pressed! Opening UI.");
-                    LordCaptorManager.OpenPrisonerManagementUI();
+                    var activeState = TaleWorlds.Core.Game.Current.GameStateManager.ActiveState;
+                    if (activeState is TaleWorlds.CampaignSystem.GameState.MapState || activeState is TaleWorlds.CampaignSystem.GameState.PartyState)
+                    {
+                        if (Campaign.Current != null && Hero.MainHero != null && TaleWorlds.CampaignSystem.Party.PartyBase.MainParty != null)
+                        {
+                            if (!LordCaptorManager.IsMenuOpen && Input.IsKeyDown(InputKey.LeftShift) && Input.IsKeyPressed(InputKey.O))
+                            {
+                                LordCaptorManager.IsMenuOpen = true;
+                                LordCaptorManager.Log("Shift+O pressed! Opening UI.");
+                                LordCaptorManager.OpenPrisonerManagementUI();
+                            }
+                        }
+                    }
                 }
             }
+            catch { }
         }
     }
 }
