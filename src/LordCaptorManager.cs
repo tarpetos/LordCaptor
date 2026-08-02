@@ -199,6 +199,13 @@ namespace LordCaptor
                             else
                             {
                                 EndCaptivityAction.ApplyByReleasedByChoice(h, Hero.MainHero);
+                                
+                                int relationGain = 3;
+                                
+                                if (Hero.MainHero.GetTraitLevel(TaleWorlds.CampaignSystem.CharacterDevelopment.DefaultTraits.Mercy) > 0) relationGain += 1;
+                                if (Hero.MainHero.GetTraitLevel(TaleWorlds.CampaignSystem.CharacterDevelopment.DefaultTraits.Honor) > 0) relationGain += 1;
+                                
+                                ChangeRelationAction.ApplyPlayerRelation(h, relationGain, true, true);
                             }
                             allHeroes.Remove(h);
                         }
@@ -316,6 +323,12 @@ namespace LordCaptor
                                 else
                                 {
                                     EndCaptivityAction.ApplyByReleasedByChoice(h, Hero.MainHero);
+                                    int relationGain = 3;
+                                    
+                                    if (Hero.MainHero.GetTraitLevel(TaleWorlds.CampaignSystem.CharacterDevelopment.DefaultTraits.Mercy) > 0) relationGain += 1;
+                                    if (Hero.MainHero.GetTraitLevel(TaleWorlds.CampaignSystem.CharacterDevelopment.DefaultTraits.Honor) > 0) relationGain += 1;
+                                    
+                                    ChangeRelationAction.ApplyPlayerRelation(h, relationGain, true, true);
                                 }
                             }
                         }
