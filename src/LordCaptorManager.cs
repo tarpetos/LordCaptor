@@ -22,6 +22,12 @@ namespace LordCaptor
         public static List<Hero> GatheredHeroes { get; set; } = new List<Hero>();
         private static List<Hero> _pendingLords = new List<Hero>();
 
+        public delegate void AddCustomActionsDelegate(List<InquiryElement> options, bool isApplyToAll);
+        public static event AddCustomActionsDelegate OnAddCustomActions;
+
+        public delegate bool CustomActionSelectedDelegate(string choice, List<Hero> targetHeroes, bool fromShiftO);
+        public static event CustomActionSelectedDelegate OnCustomActionSelected;
+
         public static void Log(string message)
         {
             try
@@ -140,6 +146,10 @@ namespace LordCaptor
         {
             List<InquiryElement> options = new List<InquiryElement>();
             options.Add(new InquiryElement("execute", new TextObject("{=lord_captor_execute_all}Execute Selected").ToString(), null, true, ""));
+            
+            // Allow addons to insert custom options directly under Execute
+            OnAddCustomActions?.Invoke(options, false);
+
             options.Add(new InquiryElement("release", new TextObject("{=lord_captor_release_all}Release Selected").ToString(), null, true, ""));
             options.Add(new InquiryElement("back", new TextObject("{=lord_captor_cancel}Back").ToString(), null, true, ""));
 
@@ -210,7 +220,17 @@ namespace LordCaptor
                             allHeroes.Remove(h);
                         }
                     }
-                    
+                    else
+                    {
+                        bool handled = OnCustomActionSelected?.Invoke(choice, selectedHeroes.ToList(), fromShiftO) ?? false;
+                        if (handled)
+                        {
+                            foreach (Hero h in selectedHeroes)
+                            {
+                                allHeroes.Remove(h);
+                            }
+                        }
+                    }
 
                     if (!fromShiftO)
                     {
@@ -272,8 +292,13 @@ namespace LordCaptor
         {
             var elements = new List<InquiryElement>();
             elements.Add(new InquiryElement("execute_all", new TaleWorlds.Localization.TextObject("{=lord_captor_apply_execute_all}Execute All").ToString(), null, true, ""));
+            
+            // Allow addons to insert custom options directly under Execute All
+            OnAddCustomActions?.Invoke(elements, true);
+
             elements.Add(new InquiryElement("release_all", new TaleWorlds.Localization.TextObject("{=lord_captor_apply_release_all}Release All").ToString(), null, true, ""));
             if (!fromShiftO) elements.Add(new InquiryElement("take_all", new TaleWorlds.Localization.TextObject("{=lord_captor_apply_take_all}Take All Prisoner").ToString(), null, true, ""));
+
             elements.Add(new InquiryElement("back", new TaleWorlds.Localization.TextObject("{=lord_captor_cancel}Cancel").ToString(), null, true, ""));
 
             MBInformationManager.ShowMultiSelectionInquiry(new MultiSelectionInquiryData(
@@ -348,6 +373,17 @@ namespace LordCaptor
                     else if (choice == "back")
                     {
                         ShowPrisonerManagementUI(allHeroes, fromShiftO);
+                        return;
+                    }
+                    else
+                    {
+                        bool handled = OnCustomActionSelected?.Invoke(choice, allHeroes.ToList(), fromShiftO) ?? false;
+                        if (handled)
+                        {
+                            if (!fromShiftO) { SkipVanillaCaptureLogic = false; BattleHandled = false; }
+                            IsMenuOpen = false;
+                            return;
+                        }
                     }
                 },
                 (List<InquiryElement> selected) => 
@@ -362,7 +398,5 @@ namespace LordCaptor
                 }
             ));
         }
-
-
     }
 }
