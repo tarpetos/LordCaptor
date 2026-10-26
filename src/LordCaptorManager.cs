@@ -192,30 +192,16 @@ namespace LordCaptor
                     {
                         foreach (Hero h in selectedHeroes)
                         {
-                            if (fromShiftO)
+                            if (!fromShiftO)
+                            {
+                                ReleaseAfterBattle(h);
+                            }
+                            else
                             {
                                 if (PartyBase.MainParty != null && PartyBase.MainParty.PrisonRoster != null)
                                     PartyBase.MainParty.PrisonRoster.RemoveTroop(h.CharacterObject, 1);
-                            }
-                            else
-                            {
-                                TakePrisonerAction.Apply(PartyBase.MainParty, h);
-                            }
-                            
-                            if (!fromShiftO) 
-                            {
-                                EndCaptivityAction.ApplyByReleasedAfterBattle(h);
-                            }
-                            else
-                            {
-                                EndCaptivityAction.ApplyByReleasedByChoice(h, Hero.MainHero);
-                                
-                                int relationGain = 3;
-                                
-                                if (Hero.MainHero.GetTraitLevel(TaleWorlds.CampaignSystem.CharacterDevelopment.DefaultTraits.Mercy) > 0) relationGain += 1;
-                                if (Hero.MainHero.GetTraitLevel(TaleWorlds.CampaignSystem.CharacterDevelopment.DefaultTraits.Honor) > 0) relationGain += 1;
-                                
-                                ChangeRelationAction.ApplyPlayerRelation(h, relationGain, true, true);
+
+                                ReleaseByChoice(h);
                             }
                             allHeroes.Remove(h);
                         }
@@ -263,6 +249,67 @@ namespace LordCaptor
                     IsMenuOpen = false; 
                 }
             ));
+        }
+
+        // Mirrors vanilla LordConversationsCampaignBehavior.conversation_talk_lord_defeat_to_lord_release_on_consequence:
+        // defeated lords are not prisoners yet, so they are let go without being captured first.
+        private static void ReleaseAfterBattle(Hero h)
+        {
+            if (h.IsPrisoner)
+                EndCaptivityAction.ApplyByReleasedAfterBattle(h);
+            else
+                MakeHeroFugitiveAction.Apply(h, false);
+
+            ChangeRelationAction.ApplyPlayerRelation(h, 4, true, true);
+        }
+
+        // Mirrors vanilla LordConversationsCampaignBehavior.conversation_player_let_prisoner_go_on_consequence.
+        // The base value is scaled by DiplomacyModel.GetRelationIncreaseFactor inside ChangeRelationAction.
+        private static void ReleaseByChoice(Hero h)
+        {
+            EndCaptivityAction.ApplyByReleasedByChoice(h, Hero.MainHero);
+            ChangeRelationAction.ApplyPlayerRelation(h, 4, true, true);
+        }
+
+        // Mirrors vanilla PartyScreenLogic.ExecuteTroop when Shift+O was used over the party screen: the screen edits
+        // the live rosters but keeps snapshots that Cancel restores, so lords executed or released here are dropped
+        // from those snapshots too, then the screen rebuilds its lists.
+        public static void SyncPartyScreen()
+        {
+            var partyState = TaleWorlds.Core.Game.Current?.GameStateManager?.ActiveState as TaleWorlds.CampaignSystem.GameState.PartyState;
+            var logic = partyState?.PartyScreenLogic;
+            if (logic == null) return;
+
+            var flags = System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic;
+            bool changed = false;
+            foreach (string field in new[] { "_initialData", "_savedData" })
+            {
+                if (typeof(PartyScreenLogic).GetField(field, flags)?.GetValue(logic) is PartyScreenData data)
+                {
+                    changed |= RemoveGoneHeroes(data.RightPrisonerRoster);
+                    changed |= RemoveGoneHeroes(data.LeftPrisonerRoster);
+                }
+            }
+
+            if (changed)
+                typeof(PartyScreenLogic).GetMethod("OnReset", flags)?.Invoke(logic, new object[] { false });
+        }
+
+        private static bool RemoveGoneHeroes(TroopRoster roster)
+        {
+            if (roster == null) return false;
+
+            bool removed = false;
+            foreach (TroopRosterElement troop in roster.GetTroopRoster().ToList())
+            {
+                Hero hero = troop.Character?.HeroObject;
+                if (hero != null && (hero.IsDead || !hero.IsPrisoner))
+                {
+                    roster.RemoveTroop(troop.Character, troop.Number);
+                    removed = true;
+                }
+            }
+            return removed;
         }
 
         public static void OpenPrisonerManagementUI()
@@ -332,28 +379,16 @@ namespace LordCaptor
                         {
                             if (h.IsAlive) 
                             {
-                                if (fromShiftO)
+                                if (!fromShiftO)
+                                {
+                                    ReleaseAfterBattle(h);
+                                }
+                                else
                                 {
                                     if (PartyBase.MainParty != null && PartyBase.MainParty.PrisonRoster != null)
                                         PartyBase.MainParty.PrisonRoster.RemoveTroop(h.CharacterObject, 1);
-                                }
-                                else
-                                {
-                                    TakePrisonerAction.Apply(PartyBase.MainParty, h);
-                                }
-                                if (!fromShiftO) 
-                                {
-                                    EndCaptivityAction.ApplyByReleasedAfterBattle(h);
-                                }
-                                else
-                                {
-                                    EndCaptivityAction.ApplyByReleasedByChoice(h, Hero.MainHero);
-                                    int relationGain = 3;
-                                    
-                                    if (Hero.MainHero.GetTraitLevel(TaleWorlds.CampaignSystem.CharacterDevelopment.DefaultTraits.Mercy) > 0) relationGain += 1;
-                                    if (Hero.MainHero.GetTraitLevel(TaleWorlds.CampaignSystem.CharacterDevelopment.DefaultTraits.Honor) > 0) relationGain += 1;
-                                    
-                                    ChangeRelationAction.ApplyPlayerRelation(h, relationGain, true, true);
+
+                                    ReleaseByChoice(h);
                                 }
                             }
                         }

@@ -8,6 +8,8 @@ namespace LordCaptor
 {
     public class LordCaptorSubModule : MBSubModuleBase
     {
+        private bool _wasMenuOpen = false;
+
         protected override void OnSubModuleLoad()
         {
             base.OnSubModuleLoad();
@@ -32,8 +34,11 @@ namespace LordCaptor
         {
             base.OnApplicationTick(dt);
             
-            try 
+            try
             {
+                if (_wasMenuOpen && !LordCaptorManager.IsMenuOpen) LordCaptorManager.SyncPartyScreen();
+                _wasMenuOpen = LordCaptorManager.IsMenuOpen;
+
                 if (TaleWorlds.Core.Game.Current != null && TaleWorlds.Core.Game.Current.GameStateManager != null)
                 {
                     var activeState = TaleWorlds.Core.Game.Current.GameStateManager.ActiveState;
